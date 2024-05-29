@@ -1,0 +1,32 @@
+#cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);    
+}
+.closed {
+    background: rgb(120,202,254);
+    background: radial-gradient(circle, rgba(120,202,254,1) 0%, rgba(94,170,255,1) 100%); 
+}
+
+.flagged_yellow {
+    background: rgb(244,220,66);
+    background: radial-gradient(circle, rgba(244,220,66,1) 0%, rgba(244,208,120,1) 100%);
+}
+.flagged_yellow::before {
+    margin: auto;
+    content: url("../img/flag_icon.svg");
+} 
+.open {
+    background: rgb(213,219,236);
+    background: radial-gradient(circle, rgba(213,219,236,1) 0%, rgba(211,218,242,1) 100%);
+}
+.one{
+    color: #4554bd;
+    font-size: 64px;
+
+}
