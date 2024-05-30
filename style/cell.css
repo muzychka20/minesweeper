@@ -5,6 +5,7 @@
     width: 100px;
     height: 100px;
     border-radius: 3px;
+    margin: 10px;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);    
 }
@@ -21,6 +22,30 @@
     margin: auto;
     content: url("../img/flag_icon.svg");
 } 
+.flagged_green {
+    background: rgb(93,244,0);
+    background: radial-gradient(circle, rgba(93,244,0,1) 0%, rgba(4,225,0,1) 100%); 
+}
+.flagged_green::before {
+    margin: auto;
+    content: url("../img/flag_icon_for_green.svg");
+} 
+.flagged_red {
+    background: rgb(255,119,60);
+    background: radial-gradient(circle, rgba(255,119,60,1) 0%, rgba(255,84,84,1) 100%);
+}
+.flagged_red::before {
+    margin: auto;
+    content: url("../img/flag_icon_for_red.svg");
+} 
+.mine {
+    background: rgb(255,119,60);
+    background: radial-gradient(circle, rgba(255,119,60,1) 0%, rgba(255,84,84,1) 100%);
+}
+.mine::before {
+    margin: auto;
+    content: url("../img/mine_icon.svg");
+} 
 .open {
     background: rgb(213,219,236);
     background: radial-gradient(circle, rgba(213,219,236,1) 0%, rgba(211,218,242,1) 100%);
@@ -28,5 +53,23 @@
 .one{
     color: #4554bd;
     font-size: 64px;
-
+}
+.open {
+    background: rgb(213,219,236);
+    background: radial-gradient(circle, rgba(213,219,236,1) 0%, rgba(211,218,242,1) 100%);
+}
+#button1 {
+    width: 200px;
+    height: 55px;
+    border-radius: 25px;
+    border: none;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);  
+}
+.button_game {
+    cursor: pointer;
+    color:#fff ;
+    font-size: 800;
+    background-color: #5ac3a2;
+    
 }
