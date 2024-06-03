@@ -40,7 +40,25 @@ export class Board {
         }
     }
 
-    displayBoard() {            
+    setDigits() {
+        for (let i = 0; i < this.height; i++) {
+            for (let j = 0; j < this.width; j++) {
+                let minesAmount = 0
+                for (let k = 0; k < neighbourhood.neighboursPairs.length; k++) {                    
+                    let row = i + neighbourhood.neighboursPairs[k].first
+                    let col = j + neighbourhood.neighboursPairs[k].second
+                    if (row < this.height && row >= 0 &&
+                        col >= 0 && col < this.width &&
+                        this.board[row][col].mine) {
+                            minesAmount++;
+                    }
+                }
+                this.board[i][j].quantityNearbyMines = minesAmount
+            }
+        }
+    }
+
+    displayBoard() {
         console.log(this.board)        
     }
 }
