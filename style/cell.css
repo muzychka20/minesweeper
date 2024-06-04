@@ -1,18 +1,3 @@
-.menu {
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.input{
-    background-color: transparent;
-    border: none;
-    color: #000; 
-    font-size: 16px; 
-    padding: 10px; 
-    outline: none; 
-    width: 40px;
-
-}
 #cell {
     display: flex;
     justify-content: center;
@@ -24,6 +9,7 @@
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);    
 }
+
 .closed {
     background: rgb(120,202,254);
     background: radial-gradient(circle, rgba(120,202,254,1) 0%, rgba(94,170,255,1) 100%); 
@@ -33,83 +19,89 @@
     background: rgb(244,220,66);
     background: radial-gradient(circle, rgba(244,220,66,1) 0%, rgba(244,208,120,1) 100%);
 }
+
 .flagged_yellow::before {
     margin: auto;
     content: url("../img/flag_icon.svg");
 } 
+
 .flagged_green {
     background: rgb(93,244,0);
     background: radial-gradient(circle, rgba(93,244,0,1) 0%, rgba(4,225,0,1) 100%); 
 }
+
 .flagged_green::before {
     margin: auto;
     content: url("../img/flag_icon_for_green.svg");
 } 
+
 .flagged_red {
     background: rgb(255,119,60);
     background: radial-gradient(circle, rgba(255,119,60,1) 0%, rgba(255,84,84,1) 100%);
 }
+
 .flagged_red::before {
     margin: auto;
     content: url("../img/flag_icon_for_red.svg");
 } 
+
 .mine {
     background: rgb(255,119,60);
     background: radial-gradient(circle, rgba(255,119,60,1) 0%, rgba(255,84,84,1) 100%);
 }
+
 .mine::before {
     margin: auto;
     content: url("../img/mine_icon.svg");
 } 
+
 .open {
     background: rgb(213,219,236);
     background: radial-gradient(circle, rgba(213,219,236,1) 0%, rgba(211,218,242,1) 100%);
 }
+
 .one{
     color: #4554bd;
     font-size: 64px;
 }
+
 .two {
     color: #407b33;
     font-size: 64px;
 }
+
 .three {
     color: #ac0a0b;
     font-size: 64px;
 }
+
 .four {
     color: #131e69;
     font-size: 64px;
 }
+
 .five {
     color: #770705;
     font-size: 64px;
 }
+
 .six {
     color: #0a7f84;
     font-size: 64px;
 }
+
 .seven {
     color: #373737;
     font-size: 64px;
 }
+
 .eight {
     color: #ffff;
     font-size: 64px;
 }
+
 .open {
     background: rgb(213,219,236);
     background: radial-gradient(circle, rgba(213,219,236,1) 0%, rgba(211,218,242,1) 100%);
 }
-#button{
-    width: 200px;
-    height: 45px;
-    border-radius: 25px;
-    border: none;
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25), inset 0px -3px 11px 2px rgba(0,0,0,0.25);  
-    cursor: pointer;
-    color:#fff ;
-    font-size: 800;
-    background-color: #5ac3a2;
-}
+
