@@ -7,3 +7,7 @@
 .row {
     display: flex;
 }
+
+.hide {
+    display: none;
+}
