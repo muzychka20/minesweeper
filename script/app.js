@@ -1,6 +1,13 @@
 import { Board } from './classes/Board.js'
 
-let b = new Board(9, 9, 10)
+let width = document.getElementById('width').value
+let height = document.getElementById('height').value
+let mines = document.getElementById('mines').value
+console.log(width)
+console.log(height)
+console.log(mines)
+
+let b = new Board(width, height, mines)
 b.createBoard()
 b.setMines()
 b.setDigits()
