@@ -1,6 +1,6 @@
 import { Board } from './classes/Board.js'
 
-let b = new Board(3, 4, 4)
+let b = new Board(9, 9, 10)
 b.createBoard()
 b.setMines()
 b.setDigits()

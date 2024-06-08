@@ -59,6 +59,17 @@ export class Board {
     }
 
     displayBoard() {
-        console.log(this.board)        
+        console.log(this.board) 
+        for (let i = 0; i < this.height; i++) {
+            let row = document.createElement('div')
+            row.classList.add('row')
+            for (let j = 0; j < this.width; j++) {
+                let cellBlock = document.createElement('div')
+                cellBlock.setAttribute('id', 'cell')
+                cellBlock.classList.add('closed')
+                row.appendChild(cellBlock)
+            }
+            document.querySelector('.board').appendChild(row)
+        }
     }
 }
