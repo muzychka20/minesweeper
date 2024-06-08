@@ -5,7 +5,7 @@
     text-align: center;
 }
 
-.input_data{
+.input_data {
     background-color: transparent;
     border: none;
     color: #000; 
@@ -17,7 +17,7 @@
     width: 35px;
 }
 
-#button{
+#buttonNewGame {
     width: 200px;
     height: 45px;
     border-radius: 25px;
