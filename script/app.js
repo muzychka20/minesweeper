@@ -1,9 +1,6 @@
-import { Board } from './classes/Board.js'
+import { BoardInterface } from './classes/board/BoardInterface.js'
 
-
-// console.log(width)
-// console.log(height)
-// console.log(mines)
+document.addEventListener('contextmenu', event => event.preventDefault())
 
 const escapePressed = (event) => {   
     if (event.key === 'Escape') {
@@ -15,16 +12,8 @@ const escapePressed = (event) => {
 }
 
 document.getElementById('buttonNewGame').addEventListener('click', event=> {
-    event.preventDefault()
-let width = document.getElementById('width').value
-let height = document.getElementById('height').value
-let mines = document.getElementById('mines').value    
-let b = new Board(width, height, mines)
-b.createBoard()
-b.setMines()
-b.setDigits()
-b.displayBoard()
-
+    event.preventDefault() 
+    new BoardInterface()
 })
 
 document.addEventListener('keydown', escapePressed)
