@@ -22,3 +22,5 @@ function changePages() {
     const board = document.querySelector('.board')
     board.classList.toggle('display')
 }
+
+

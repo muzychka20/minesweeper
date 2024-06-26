@@ -6,9 +6,11 @@ import { FlaggedCellCommand } from '../cell/FlaggedCellCommand.js'
 import { MineCellCommand } from '../cell/MineCellCommand.js'
 import { RemoveClassCommand } from '../cell/RemoveClassCommand.js';
 import { ToggleClassCommand } from '../cell/ToggleClassCommand.js';
+import { Timer } from '../Timer.js'
 
 export class BoardInterface {
     board
+    timer
 
     constructor() {
         let width = document.getElementById('width').value
@@ -52,6 +54,7 @@ export class BoardInterface {
             this.board.setMines(i, j)
             this.board.setDigits()
             this.board.makeFirstClick()
+            this.timer = new Timer(document.getElementById('timer'))
         }
         this.board.deleteFlag(i, j)
         let removeClassCommand = new RemoveClassCommand('flagged_yellow')
@@ -62,6 +65,7 @@ export class BoardInterface {
                 alert('You lose!')
             }, 100)
             this.removeEventListeners()
+            this.timer.stopTimer()
             return
         }
         this.board.openCell(i, j)
@@ -72,6 +76,7 @@ export class BoardInterface {
                 alert('You win!')
             }, 100)
             this.removeEventListeners()
+            this.timer.stopTimer()
         }
     }
 
@@ -137,4 +142,5 @@ export class BoardInterface {
             }
         }
     }
+
 }
