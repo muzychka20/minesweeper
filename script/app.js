@@ -4,16 +4,23 @@ document.addEventListener('contextmenu', event => event.preventDefault())
 
 const escapePressed = (event) => {   
     if (event.key === 'Escape') {
-        const menu = document.querySelector('.menu')
-        menu.classList.toggle('display')
-        const board = document.querySelector('.board')
-        board.classList.toggle('hide')
+        changePages()
     }
 }
 
 document.getElementById('buttonNewGame').addEventListener('click', event=> {
     event.preventDefault() 
+    changePages()
     new BoardInterface()
 })
 
 document.addEventListener('keydown', escapePressed)
+
+function changePages() {
+    const menu = document.querySelector('.menu')
+    menu.classList.toggle('hide')
+    const board = document.querySelector('.board')
+    board.classList.toggle('display')
+}
+
+
