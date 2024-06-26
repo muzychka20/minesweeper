@@ -7,4 +7,10 @@ body {
     font-weight: 700;
     font-style: normal;
     background-color: #EBECD5;
+    overflow-block: visible;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }

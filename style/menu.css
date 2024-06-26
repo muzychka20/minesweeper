@@ -1,12 +1,15 @@
 .menu {
-    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.display {
-    display: flex;
+.hide {
+    display: none;
 }
 
 .input_data {

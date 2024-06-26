@@ -1,5 +1,5 @@
 .board {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -8,6 +8,6 @@
     display: flex;
 }
 
-.hide {
-    display: none;
+.display {
+    display: flex;
 }

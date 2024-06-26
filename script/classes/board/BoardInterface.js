@@ -41,7 +41,6 @@ export class BoardInterface {
             }
             boardContainer.appendChild(row)
         }
-        console.log(this.board.getBoard())
     }
 
     getCell(i, j) {
@@ -54,7 +53,6 @@ export class BoardInterface {
             this.board.setDigits()
             this.board.makeFirstClick()
         }
-        console.log(this.board.getBoard())    
         this.board.deleteFlag(i, j)
         let removeClassCommand = new RemoveClassCommand('flagged_yellow')
         removeClassCommand.execute(this.getCell(i, j))
@@ -63,6 +61,7 @@ export class BoardInterface {
             setTimeout(() => {
                 alert('You lose!')
             }, 100)
+            this.removeEventListeners()
             return
         }
         this.board.openCell(i, j)
@@ -72,6 +71,7 @@ export class BoardInterface {
             setTimeout(() => {
                 alert('You win!')
             }, 100)
+            this.removeEventListeners()
         }
     }
 
@@ -80,6 +80,16 @@ export class BoardInterface {
             this.board.setFlag(i, j)
             let toggleClassCommand = new ToggleClassCommand('flagged_yellow')
             toggleClassCommand.execute(this.getCell(i, j))
+        }
+    }
+
+    removeEventListeners() {
+        for (let i = 0; i < this.board.getHeight(); i++) {
+            for (let j = 0; j < this.board.getWidth(); j++) {
+                let cell = this.getCell(i, j)
+                let newCell = cell.cloneNode(true)
+                cell.parentNode.replaceChild(newCell, cell)
+            }
         }
     }
 
