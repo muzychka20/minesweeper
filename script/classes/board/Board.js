@@ -75,16 +75,22 @@ export class Board {
 
     setMines(i, j) {
         let placedMines = 0
+        let array = []
+        for (let i = 0; i < this.#size; i++) {
+            array.push(i)
+        }
         while (placedMines < this.#minesQuantity) {
-            let position = random.getRandomIntInclusive(0, this.#size - 1)
+            let index = Math.floor(Math.random() * array.length)
+            let position = array[index]
+            array.splice(index, 1)
             let row = Math.floor(position / this.#width)
             let col = position % this.#width
-            if (!this.#board[row][col].mine && row != i && col != j) {
+            if (!(row === i && col === j) && !this.#board[row][col].mine) {
                 this.#board[row][col].mine = true
-                placedMines++
+                placedMines++            
             }
         }
-    }  
+    }
 
     setDigits() {
         for (let i = 0; i < this.#height; i++) {

@@ -10,8 +10,10 @@ const escapePressed = (event) => {
 
 document.getElementById('buttonNewGame').addEventListener('click', event=> {
     event.preventDefault() 
-    changePages()
-    new BoardInterface()
+    let boardInterface = new BoardInterface()
+    if (boardInterface.board) {
+        changePages()
+    }
 })
 
 document.addEventListener('keydown', escapePressed)

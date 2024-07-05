@@ -9,16 +9,20 @@ import { ToggleClassCommand } from '../cell/ToggleClassCommand.js';
 import { Timer } from '../Timer.js'
 
 export class BoardInterface {
-    board
+    board = null
     timer
 
     constructor() {
         let width = document.getElementById('width').value
         let height = document.getElementById('height').value
         let mines = document.getElementById('mines').value
-        this.board = new Board(width, height, mines)
-        this.board.createBoard()
-        this.setBoard()
+        if (width * height <= mines) {
+            alert("Enter the correct amount of mines!")
+        } else {
+            this.board = new Board(width, height, mines)
+            this.board.createBoard()
+            this.setBoard()
+        }
     }
 
     setBoard() {
