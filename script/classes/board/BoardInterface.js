@@ -123,6 +123,7 @@ export class BoardInterface {
 
     displayOpenCells() {        
         let openCellCommand = new OpenCellCommand()
+        let removeClosed = new RemoveClassCommand('closed')
         for (let i = 0; i < this.board.getWidth(); i++) {            
             for (let j = 0; j < this.board.getHeight(); j++) {                  
                 if (this.board.isOpen(i, j)) {
@@ -131,6 +132,7 @@ export class BoardInterface {
                     let quantity = this.board.getQuantity(i, j)
                     let numberCellCommand = new NumberCellCommand(quantity)
                     numberCellCommand.execute(cell)
+                    removeClosed.execute(cell)
                 }    
             }
         }

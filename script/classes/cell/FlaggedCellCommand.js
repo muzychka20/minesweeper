@@ -6,7 +6,8 @@ export class FlaggedCellCommand extends CellCommand {
         this.nameClass = 'flagged_' + type
     }
 
-    execute(cell) {
+    execute(cell) {        
+        cell.className = ''
         cell.classList.add(this.nameClass)        
     }
 }

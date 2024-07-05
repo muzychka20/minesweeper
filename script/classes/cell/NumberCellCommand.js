@@ -7,8 +7,8 @@ export class NumberCellCommand extends CellCommand {
     }
 
     execute(cell) {
-        cell.classList.add(this.numberToClass(this.number))
-        if (this.number) {
+        if (this.number - 1 >= 0) {
+            cell.classList.add(this.numberToClass(this.number))
             cell.innerHTML = this.number.toString()
         }
     }
