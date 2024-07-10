@@ -1,57 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style/cell.css">
     <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style/menu.css">
-    <link rel="stylesheet" href="./style/board.css">
-    <link rel="stylesheet" href="./style/parameters.css">
     <link rel="stylesheet" href="./style/game_view.css">
 </head>
+
 <body>
     <div class="container">
         <div class="menu">
-            <form onsubmit ="newGame()">
-            <label for="width">Width:</label>
-            <input type="number" id="width" class="input_data" min="6" max="35" value="9">
-            <br>
-            <label for="height">Height:</label>        
-            <input type="number" id="height" class="input_data" min="6" max="35" value="9">
-            <br>
-            <label for="mines">Mines:</label>            
-            <input type="number" id="mines" class="input_data" min="1" value="10">
-            <br>
-            <button id="buttonNewGame">New game</button>
-            </form>  
+            <form onsubmit="newGame()">
+                <label for="width">Width:</label>
+                <input type="number" id="width" class="input_data" min="6" max="35" value="9">
+                <br>
+                <label for="height">Height:</label>
+                <input type="number" id="height" class="input_data" min="6" max="35" value="9">
+                <br>
+                <label for="mines">Mines:</label>
+                <input type="number" id="mines" class="input_data" min="1" value="10">
+                <br>
+                <button id="buttonNewGame">New game</button>
+            </form>
         </div>
         <div class="game_view">
             <div class="info_parameters">
-                <div id="timer"><span>Seconds: 0</span></div>            
+                <div id="timer"><span>Seconds: 0</span></div>
             </div>
-            <div class="board">
-                <!-- <div class="closed" id="cell"></div>
-                <div class="flagged_yellow" id="cell"></div>
-                <div class="flagged_green" id="cell"></div>
-                <div class="flagged_red" id="cell"></div>
-                <div class="mine" id="cell"></div>
-                <div class="open" id="cell"><span class="one">1</span></div>
-                <div class="open" id="cell"><span class="two">2</span></div>
-                <div class="open" id="cell"><span class="three">3</span></div>
-                <div class="open" id="cell"><span class="four">4</span></div>
-                <div class="open" id="cell"><span class="five">5</span></div>
-                <div class="open" id="cell"><span class="six">6</span></div>
-                <div class="open" id="cell"><span class="seven">7</span></div>
-                <div class="open" id="cell"><span class="eight">8</span></div>
-                <div class="open" id="cell"><span class=""></span></div>   -->
-            </div>
-        </div>        
+            <div class="board"></div>
+        </div>
     </div>
     <script type="module" src="./script/app.js"></script>
 </body>
+
 </html>

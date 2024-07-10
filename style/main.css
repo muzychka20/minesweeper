@@ -1,16 +1,14 @@
 body {
     margin: 0;
     padding: 0;
-    justify-content: center;
-    align-items: center;
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
     font-style: normal;
     background-color: #EBECD5;
-    overflow-block: visible;
+    display: flex;
+    align-items: center;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    margin: auto;
 }
