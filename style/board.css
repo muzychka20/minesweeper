@@ -1,13 +1,13 @@
-.board {
-    display: none;
+.board {    
     flex-direction: column;
     align-items: center;
+    
 }
 
 .row {
     display: flex;
 }
-
+/* 
 .display {
     display: flex;
-}
+} */

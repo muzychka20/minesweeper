@@ -10,9 +10,9 @@ import { Timer } from '../Timer.js'
 
 export class BoardInterface {
     board = null
-    timer
+    timer = null
 
-    constructor() {
+    constructor(timer) {
         let width = document.getElementById('width').value
         let height = document.getElementById('height').value
         let mines = document.getElementById('mines').value
@@ -21,11 +21,12 @@ export class BoardInterface {
         } else {
             this.board = new Board(width, height, mines)
             this.board.createBoard()
-            this.setBoard()
+            this.setBoard()            
+            this.timer = timer
         }
     }
 
-    setBoard() {
+    setBoard() {        
         let boardContainer = document.querySelector('.board')
         boardContainer.innerHTML = ""
         for (let i = 0; i < this.board.getHeight(); i++) {
@@ -58,7 +59,8 @@ export class BoardInterface {
             this.board.setMines(i, j)
             this.board.setDigits()
             this.board.makeFirstClick()
-            this.timer = new Timer(document.getElementById('timer'))
+            this.timer.startTimer()
+            // this.timer = new Timer(document.getElementById('timer'))
         }
         this.board.deleteFlag(i, j)
         let removeClassCommand = new RemoveClassCommand('flagged_yellow')

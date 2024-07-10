@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/board.css">
+    <link rel="stylesheet" href="./style/parameters.css">
+    <link rel="stylesheet" href="./style/game_view.css">
 </head>
 <body>
     <div class="container">
@@ -28,25 +30,27 @@
             <button id="buttonNewGame">New game</button>
             </form>  
         </div>
-        <div id="timer">
-            
-        </div>
-        <div class="board">
-            <!-- <div class="closed" id="cell"></div>
-            <div class="flagged_yellow" id="cell"></div>
-            <div class="flagged_green" id="cell"></div>
-            <div class="flagged_red" id="cell"></div>
-            <div class="mine" id="cell"></div>
-            <div class="open" id="cell"><span class="one">1</span></div>
-            <div class="open" id="cell"><span class="two">2</span></div>
-            <div class="open" id="cell"><span class="three">3</span></div>
-            <div class="open" id="cell"><span class="four">4</span></div>
-            <div class="open" id="cell"><span class="five">5</span></div>
-            <div class="open" id="cell"><span class="six">6</span></div>
-            <div class="open" id="cell"><span class="seven">7</span></div>
-            <div class="open" id="cell"><span class="eight">8</span></div>
-            <div class="open" id="cell"><span class=""></span></div>   -->
-        </div>
+        <div class="game_view">
+            <div class="info_parameters">
+                <div id="timer"><span>Seconds: 0</span></div>            
+            </div>
+            <div class="board">
+                <!-- <div class="closed" id="cell"></div>
+                <div class="flagged_yellow" id="cell"></div>
+                <div class="flagged_green" id="cell"></div>
+                <div class="flagged_red" id="cell"></div>
+                <div class="mine" id="cell"></div>
+                <div class="open" id="cell"><span class="one">1</span></div>
+                <div class="open" id="cell"><span class="two">2</span></div>
+                <div class="open" id="cell"><span class="three">3</span></div>
+                <div class="open" id="cell"><span class="four">4</span></div>
+                <div class="open" id="cell"><span class="five">5</span></div>
+                <div class="open" id="cell"><span class="six">6</span></div>
+                <div class="open" id="cell"><span class="seven">7</span></div>
+                <div class="open" id="cell"><span class="eight">8</span></div>
+                <div class="open" id="cell"><span class=""></span></div>   -->
+            </div>
+        </div>        
     </div>
     <script type="module" src="./script/app.js"></script>
 </body>

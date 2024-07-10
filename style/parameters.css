@@ -1,0 +1,8 @@
+.info_parameters {  
+  position: fixed;  
+  left: 0;
+  top: 0;
+  width: auto;
+  background-color: #bed4f4;
+  padding: 10px;
+}
