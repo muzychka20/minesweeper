@@ -1,7 +1,9 @@
 import { BoardInterface } from './classes/board/BoardInterface.js'
+import { CounterMines } from './classes/CounterMines.js'
 import { Timer } from './classes/Timer.js'
 
 let timer = new Timer(document.getElementById('timer'))
+let counterMines = new CounterMines(document.getElementById('usedMines'))
 
 document.addEventListener('contextmenu', event => event.preventDefault())
 
@@ -15,7 +17,7 @@ document.getElementById('buttonNewGame').addEventListener('click', event=> {
     event.preventDefault()    
     timer.stopTimer()
     timer.clearTimer()
-    let boardInterface = new BoardInterface(timer)
+    let boardInterface = new BoardInterface(timer, counterMines)
     if (boardInterface.board) {
         changePages()
     }

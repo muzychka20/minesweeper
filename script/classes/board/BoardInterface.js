@@ -5,17 +5,17 @@ import { ClosedCellCommand } from '../cell/ClosedCellCommand.js'
 import { FlaggedCellCommand } from '../cell/FlaggedCellCommand.js'
 import { MineCellCommand } from '../cell/MineCellCommand.js'
 import { RemoveClassCommand } from '../cell/RemoveClassCommand.js';
-import { ToggleClassCommand } from '../cell/ToggleClassCommand.js';
-import { Timer } from '../Timer.js'
 
 export class BoardInterface {
     board = null
     timer = null
+    counterMines = null
 
-    constructor(timer) {
+    constructor(timer, counterMines) {
         let width = document.getElementById('width').value
         let height = document.getElementById('height').value
         let mines = document.getElementById('mines').value
+
         if (width * height <= mines) {
             alert("Enter the correct amount of mines!")
         } else {
@@ -23,6 +23,9 @@ export class BoardInterface {
             this.board.createBoard()
             this.setBoard()            
             this.timer = timer
+            this.counterMines = counterMines
+            this.counterMines.setMaxMines(mines)
+            this.counterMines.changeInterface()
         }
     }
 
@@ -60,11 +63,15 @@ export class BoardInterface {
             this.board.setDigits()
             this.board.makeFirstClick()
             this.timer.startTimer()
-            // this.timer = new Timer(document.getElementById('timer'))
+        } 
+
+        if (this.board.isFlagged(i, j)) {
+            this.board.deleteFlag(i, j)
+            let removeClassCommand = new RemoveClassCommand('flagged_yellow')
+            removeClassCommand.execute(this.getCell(i, j))
+            this.counterMines.removeMine()
         }
-        this.board.deleteFlag(i, j)
-        let removeClassCommand = new RemoveClassCommand('flagged_yellow')
-        removeClassCommand.execute(this.getCell(i, j))
+       
         if (this.board.isMine(i, j)) {
             this.displayMines()
             setTimeout(() => {
@@ -76,6 +83,7 @@ export class BoardInterface {
         }
         this.board.openCell(i, j)
         this.displayOpenCells()
+        
         if (this.board.checkVictory()) {
             this.displayVictoryFlags()
             setTimeout(() => {
@@ -88,9 +96,19 @@ export class BoardInterface {
 
     rightClickOnCell(i, j) {
         if (!this.board.isOpen(i, j)) {
-            this.board.setFlag(i, j)
-            let toggleClassCommand = new ToggleClassCommand('flagged_yellow')
-            toggleClassCommand.execute(this.getCell(i, j))
+            if (this.board.isFlagged(i, j)) {
+                this.board.deleteFlag(i, j)
+                this.counterMines.removeMine()
+                let closedCell = new ClosedCellCommand('flagged_yellow')
+                closedCell.execute(this.getCell(i, j))
+            }
+            else {
+                if (this.counterMines.addMine()) {
+                    this.board.setFlag(i, j)          
+                    let add = new FlaggedCellCommand('yellow')
+                    add.execute(this.getCell(i, j))
+                }
+            }
         }
     }
 
