@@ -39,17 +39,24 @@ export class BoardInterface {
                 let cellBlock = document.createElement('div')
                 cellBlock.setAttribute('id', 'cell')
                 let closedCellCommand = new ClosedCellCommand()
-                closedCellCommand.execute(cellBlock)
+                closedCellCommand.execute(cellBlock)                
+                let longPressTimer
+                const longPressDuration = 25
                 cellBlock.addEventListener('mousedown', event => {
-                    if (event.button === 0) {
-                        this.leftClickOnCell(i, j)
+                    if (event.button === 0) {                        
+                        longPressTimer = setTimeout(() => {
+                            this.rightClickOnCell(i, j);
+                        }, longPressDuration);
                     } else if (event.button === 2) {
-                        this.rightClickOnCell(i, j)
+                        this.rightClickOnCell(i, j);
                     }
                 })
-                cellBlock.addEventListener('contextmenu', event => {
-                    this.rightClickOnCell(i, j)
-                })        
+                cellBlock.addEventListener('mouseup', event => {
+                    if (event.button === 0) {                        
+                        clearTimeout(longPressTimer);
+                        this.leftClickOnCell(i, j);
+                    }
+                })
                 row.appendChild(cellBlock)
             }
             boardContainer.appendChild(row)
