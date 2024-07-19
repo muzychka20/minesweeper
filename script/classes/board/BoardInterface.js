@@ -47,6 +47,9 @@ export class BoardInterface {
                         this.rightClickOnCell(i, j)
                     }
                 })
+                cellBlock.addEventListener('contextmenu', event => {
+                    this.rightClickOnCell(i, j)
+                })        
                 row.appendChild(cellBlock)
             }
             boardContainer.appendChild(row)
