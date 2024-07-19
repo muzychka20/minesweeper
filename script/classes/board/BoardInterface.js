@@ -29,60 +29,59 @@ export class BoardInterface {
     }
   }
 
-  setBoard() {        
-    let boardContainer = document.querySelector('.board');
+  setBoard() {
+    let boardContainer = document.querySelector(".board");
     boardContainer.innerHTML = "";
     for (let i = 0; i < this.board.getHeight(); i++) {
-        let row = document.createElement('div');
-        row.classList.add('row');
-        for (let j = 0; j < this.board.getWidth(); j++) {
-            let cellBlock = document.createElement('div');
-            cellBlock.setAttribute('id', 'cell');
-            let closedCellCommand = new ClosedCellCommand();
-            closedCellCommand.execute(cellBlock);
+      let row = document.createElement("div");
+      row.classList.add("row");
+      for (let j = 0; j < this.board.getWidth(); j++) {
+        let cellBlock = document.createElement("div");
+        cellBlock.setAttribute("id", "cell");
+        let closedCellCommand = new ClosedCellCommand();
+        closedCellCommand.execute(cellBlock);
 
-            let longPressTimer;
-            const longPressDuration = 500; // Время долгого нажатия в миллисекундах
-            let isLongPress = false;
+        cellBlock.addEventListener("mousedown", (event) => {
+          if (event.button === 0) {
+            this.leftClickOnCell(i, j);
+          } else if (event.button === 2) {
+            this.rightClickOnCell(i, j);
+          }
+        });
 
-            const startLongPressTimer = (event) => {
-                event.preventDefault();
-                isLongPress = false;
-                longPressTimer = setTimeout(() => {
-                    isLongPress = true;
-                    this.rightClickOnCell(i, j);
-                }, longPressDuration);
-            };
+        // Добавляем поддержку для мобильных устройств
+        
+        let longPressTimer;
+        const longPressDuration = 500; // Время долгого нажатия в миллисекундах
+        let isLongPress = false;
 
-            const cancelLongPressTimer = (event) => {
-                clearTimeout(longPressTimer);
-                if (!isLongPress) {
-                    this.leftClickOnCell(i, j);
-                }
-            };
+        const startLongPressTimer = (event) => {
+          event.preventDefault();
+          isLongPress = false;
+          longPressTimer = setTimeout(() => {
+            isLongPress = true;
+            this.rightClickOnCell(i, j);
+          }, longPressDuration);
+        };
 
-            cellBlock.addEventListener('mousedown', event => {
-                if (event.button === 0) {
-                    startLongPressTimer(event);
-                } else if (event.button === 2) {
-                    this.rightClickOnCell(i, j);
-                }
-            });
+        const cancelLongPressTimer = (event) => {
+          clearTimeout(longPressTimer);
+          if (!isLongPress) {
+            this.leftClickOnCell(i, j);
+          }
+        };
 
-            cellBlock.addEventListener('mouseup', cancelLongPressTimer);
-            cellBlock.addEventListener('mouseleave', () => clearTimeout(longPressTimer)); // Для отмены при уходе курсора
+        cellBlock.addEventListener("touchstart", startLongPressTimer);
+        cellBlock.addEventListener("touchend", cancelLongPressTimer);
+        cellBlock.addEventListener("touchmove", () =>
+          clearTimeout(longPressTimer)
+        ); // Для отмены при движении пальца
 
-            // Добавляем поддержку для мобильных устройств
-            cellBlock.addEventListener('touchstart', startLongPressTimer);
-            cellBlock.addEventListener('touchend', cancelLongPressTimer);
-            cellBlock.addEventListener('touchmove', () => clearTimeout(longPressTimer)); // Для отмены при движении пальца
-
-            row.appendChild(cellBlock);
-        }
-        boardContainer.appendChild(row);
+        row.appendChild(cellBlock);
+      }
+      boardContainer.appendChild(row);
     }
-}
-
+  }
 
   getCell(i, j) {
     return document.querySelector(".board").childNodes[i].childNodes[j];
